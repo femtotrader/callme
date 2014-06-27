@@ -35,5 +35,13 @@ logging.basicConfig(level=logging.INFO)
 
 
 if __name__ == "__main__":
-    proxy = callme.Proxy(server_id='fooserver')
-    print(proxy.add(1, 1))
+    proxy = callme.Proxy(server_id='fooserver', timeout=5)
+    
+    a = 3
+    b = 2
+    result = proxy.add(a, b)
+    logging.info("a+b=%d+%d=%d" % (a, b, result) )
+    
+    n = 50
+    result = proxy.fib(n)
+    logging.info("fib(n)=fib(%d)=%d" % (n, result) )
